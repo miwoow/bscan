@@ -162,6 +162,30 @@ src/htmlp.c.s:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/htmlp.c.s
 .PHONY : src/htmlp.c.s
 
+src/spider.o: src/spider.c.o
+.PHONY : src/spider.o
+
+# target to build an object file
+src/spider.c.o:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/spider.c.o
+.PHONY : src/spider.c.o
+
+src/spider.i: src/spider.c.i
+.PHONY : src/spider.i
+
+# target to preprocess a source file
+src/spider.c.i:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/spider.c.i
+.PHONY : src/spider.c.i
+
+src/spider.s: src/spider.c.s
+.PHONY : src/spider.s
+
+# target to generate assembly for a file
+src/spider.c.s:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/spider.c.s
+.PHONY : src/spider.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -177,6 +201,9 @@ help:
 	@echo "... src/htmlp.o"
 	@echo "... src/htmlp.i"
 	@echo "... src/htmlp.s"
+	@echo "... src/spider.o"
+	@echo "... src/spider.i"
+	@echo "... src/spider.s"
 .PHONY : help
 
 

@@ -6,6 +6,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 SET(CMAKE_DEPENDS_CHECK_C
   "/home/xud/bscan/src/bscan.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/bscan.c.o"
   "/home/xud/bscan/src/htmlp.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/htmlp.c.o"
+  "/home/xud/bscan/src/spider.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/spider.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 

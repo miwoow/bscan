@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /home/xud/bscan
 CMakeFiles/./bin/bscan.dir/all:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/depend
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles  1 2 3
 	@echo "Built target ./bin/bscan"
 .PHONY : CMakeFiles/./bin/bscan.dir/all
 
@@ -72,7 +72,7 @@ all: CMakeFiles/./bin/bscan.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/./bin/bscan.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xud/bscan/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xud/bscan/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/./bin/bscan.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xud/bscan/CMakeFiles 0
 .PHONY : CMakeFiles/./bin/bscan.dir/rule

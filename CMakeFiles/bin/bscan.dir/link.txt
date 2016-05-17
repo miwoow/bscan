@@ -1,1 +1,1 @@
-/usr/bin/cc      CMakeFiles/./bin/bscan.dir/src/bscan.c.o CMakeFiles/./bin/bscan.dir/src/htmlp.c.o  -o ./bin/bscan -rdynamic -lcurl -lpthread -lxml2 
+/usr/bin/cc      CMakeFiles/./bin/bscan.dir/src/bscan.c.o CMakeFiles/./bin/bscan.dir/src/htmlp.c.o CMakeFiles/./bin/bscan.dir/src/spider.c.o  -o ./bin/bscan -rdynamic -lcurl -lpthread -lxml2 
