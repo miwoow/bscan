@@ -1,9 +1,11 @@
 #ifndef _URL_QUEUE_H
 #define _URL_QUEUE_H
 
+#include "blist.h"
+
 typedef struct _url_queue_s
 {
-  
+  blist_t *ll;
 }url_queue_t;
 
 url_queue_t *url_queue_init();

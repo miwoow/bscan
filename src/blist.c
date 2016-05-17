@@ -33,8 +33,17 @@ void blist_append_data(blist_t *l, size_t len, char *data)
 
 void blist_clean(blist_t *l)
 {
+  int i=0;
+  blist_node_t *cur;
   if (l) {
     if (l->nodes) {
+      for (i=0; i< l->index; i++) {
+	cur = l->nodes + i;
+	if (cur->data) {
+	  free(cur->data);
+	  cur->data = NULL;
+	}
+      }
       free(l->nodes);
       l->nodes = NULL
     }
