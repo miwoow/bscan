@@ -1,1 +1,1 @@
-/usr/bin/cc      CMakeFiles/./bin/bscan.dir/src/bscan.c.o  -o ./bin/bscan -rdynamic -lcurl 
+/usr/bin/cc      CMakeFiles/./bin/bscan.dir/src/bscan.c.o  -o ./bin/bscan -rdynamic -lcurl -lpthread 

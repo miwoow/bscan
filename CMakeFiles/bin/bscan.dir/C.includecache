@@ -11,6 +11,8 @@ stdio.h
 -
 stdlib.h
 -
-curl/multi.h
+pthread.h
+-
+curl/curl.h
 -
 

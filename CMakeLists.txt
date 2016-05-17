@@ -14,4 +14,4 @@ AUX_SOURCE_DIRECTORY(src DIR_SRCS)
 
 
 ADD_EXECUTABLE(./bin/bscan ${DIR_SRCS})
-TARGET_LINK_LIBRARIES(./bin/bscan curl)
+TARGET_LINK_LIBRARIES(./bin/bscan curl pthread)
