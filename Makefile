@@ -138,6 +138,30 @@ src/bscan.c.s:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/bscan.c.s
 .PHONY : src/bscan.c.s
 
+src/htmlp.o: src/htmlp.c.o
+.PHONY : src/htmlp.o
+
+# target to build an object file
+src/htmlp.c.o:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/htmlp.c.o
+.PHONY : src/htmlp.c.o
+
+src/htmlp.i: src/htmlp.c.i
+.PHONY : src/htmlp.i
+
+# target to preprocess a source file
+src/htmlp.c.i:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/htmlp.c.i
+.PHONY : src/htmlp.c.i
+
+src/htmlp.s: src/htmlp.c.s
+.PHONY : src/htmlp.s
+
+# target to generate assembly for a file
+src/htmlp.c.s:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/htmlp.c.s
+.PHONY : src/htmlp.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -150,6 +174,9 @@ help:
 	@echo "... src/bscan.o"
 	@echo "... src/bscan.i"
 	@echo "... src/bscan.s"
+	@echo "... src/htmlp.o"
+	@echo "... src/htmlp.i"
+	@echo "... src/htmlp.s"
 .PHONY : help
 
 

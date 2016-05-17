@@ -75,14 +75,39 @@ CMakeFiles/./bin/bscan.dir/src/bscan.c.o.provides: CMakeFiles/./bin/bscan.dir/sr
 
 CMakeFiles/./bin/bscan.dir/src/bscan.c.o.provides.build: CMakeFiles/./bin/bscan.dir/src/bscan.c.o
 
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.o: CMakeFiles/./bin/bscan.dir/flags.make
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.o: src/htmlp.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/htmlp.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/htmlp.c.o   -c /home/xud/bscan/src/htmlp.c
+
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/./bin/bscan.dir/src/htmlp.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/xud/bscan/src/htmlp.c > CMakeFiles/./bin/bscan.dir/src/htmlp.c.i
+
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/./bin/bscan.dir/src/htmlp.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/xud/bscan/src/htmlp.c -o CMakeFiles/./bin/bscan.dir/src/htmlp.c.s
+
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.requires:
+.PHONY : CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.requires
+
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.provides: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.requires
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.provides.build
+.PHONY : CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.provides
+
+CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.provides.build: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o
+
 # Object files for target ./bin/bscan
 _/bin/bscan_OBJECTS = \
-"CMakeFiles/./bin/bscan.dir/src/bscan.c.o"
+"CMakeFiles/./bin/bscan.dir/src/bscan.c.o" \
+"CMakeFiles/./bin/bscan.dir/src/htmlp.c.o"
 
 # External object files for target ./bin/bscan
 _/bin/bscan_EXTERNAL_OBJECTS =
 
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/src/bscan.c.o
+./bin/bscan: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/build.make
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ./bin/bscan"
@@ -93,6 +118,7 @@ CMakeFiles/./bin/bscan.dir/build: ./bin/bscan
 .PHONY : CMakeFiles/./bin/bscan.dir/build
 
 CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/bscan.c.o.requires
+CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.requires
 .PHONY : CMakeFiles/./bin/bscan.dir/requires
 
 CMakeFiles/./bin/bscan.dir/clean:
