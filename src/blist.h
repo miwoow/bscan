@@ -25,5 +25,6 @@ blist_t *blist_init(uint8_t step);
 void blist_append_data(blist_t *l, size_t len, char *data);
 void blist_clean(blist_t *l);
 size_t blist_elenum(blist_t *l);
+blist_node_t* blist_get(blist_t *l, size_t ind);
 
 #endif

@@ -56,3 +56,12 @@ size_t blist_elenum(blist_t *l)
 {
   return l->index + 1;
 }
+
+blist_node_t* blist_get(blist_t *l, size_t ind)
+{
+  blist_node_t *node = NULL;
+  if (ind < blist_elenum(l) - 1) {
+    return l->nodes + ind;
+  }
+  return node;
+}

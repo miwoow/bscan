@@ -210,6 +210,30 @@ src/spider.c.s:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/spider.c.s
 .PHONY : src/spider.c.s
 
+src/urlp.o: src/urlp.c.o
+.PHONY : src/urlp.o
+
+# target to build an object file
+src/urlp.c.o:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlp.c.o
+.PHONY : src/urlp.c.o
+
+src/urlp.i: src/urlp.c.i
+.PHONY : src/urlp.i
+
+# target to preprocess a source file
+src/urlp.c.i:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlp.c.i
+.PHONY : src/urlp.c.i
+
+src/urlp.s: src/urlp.c.s
+.PHONY : src/urlp.s
+
+# target to generate assembly for a file
+src/urlp.c.s:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlp.c.s
+.PHONY : src/urlp.c.s
+
 src/urlqueue.o: src/urlqueue.c.o
 .PHONY : src/urlqueue.o
 
@@ -255,6 +279,9 @@ help:
 	@echo "... src/spider.o"
 	@echo "... src/spider.i"
 	@echo "... src/spider.s"
+	@echo "... src/urlp.o"
+	@echo "... src/urlp.i"
+	@echo "... src/urlp.s"
 	@echo "... src/urlqueue.o"
 	@echo "... src/urlqueue.i"
 	@echo "... src/urlqueue.s"

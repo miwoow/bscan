@@ -21,6 +21,7 @@ spider_t* spider_init(char *url)
   spider_t *sp = (spider_t *)calloc(1, sizeof(spider_t));
   strncpy(sp->root_url, url, strlen(url));
   sp->urlq = url_queue_init();
+  url_queue_add(sp->urlq, url);
   return sp;
 }
 
@@ -35,21 +36,27 @@ void spider_start(spider_t *sp)
 
   eh = curl_easy_init();
   if (eh) {
-    curl_easy_setopt(eh, CURLOPT_URL, sp->root_url);
-    fh = fopen("www.baidu.com", "w+");
-    header_list = curl_slist_append(header_list, "User-Agent: Mozilla/5.0 (Linux; U;Android 2.3.5;zh-cn;P331Build/GRJ22) AppleWebKit/533.1 (KHTML, li\
-ke Gecko) Version/4.0 Mobile Safari/533.1");
     curl_easy_setopt(eh, CURLOPT_WRITEFUNCTION, resp_write_callback);
-    curl_easy_setopt(eh, CURLOPT_WRITEDATA, fh);
+    header_list = curl_slist_append(header_list, "User-Agent: Mozilla/5.0 (Linux; U;Android 2.3.5;zh-cn;P331Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
     curl_easy_setopt(eh, CURLOPT_HTTPHEADER, header_list);
-    res = curl_easy_perform(eh);
-    if (res != CURLE_OK) {
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
-              curl_easy_strerror(res));
+    
+    while(sp->urlq->spider_index < url_queue_elenum(sp->urlq) - 1) {
+      curl_easy_setopt(eh, CURLOPT_URL, url_queue_get(sp->urlq, sp->urlq->spider_index));
+      fh = fopen("/tmp/bscan.spider.page", "w+");
+      curl_easy_setopt(eh, CURLOPT_WRITEDATA, fh);
+      
+      res = curl_easy_perform(eh);
+      if (res != CURLE_OK) {
+	fprintf(stderr, "curl_easy_perform() failed: %s\n",
+		curl_easy_strerror(res));
+      }
+      fclose(fh);
+      htmlp_get_link(sp->urlq, "/tmp/bscan.spider.page", "UTF-8");
+      printf("queu num: %ld\n", url_queue_elenum(sp->urlq));
+      sp->urlq->spider_index++;
     }
-    fclose(fh);
+
     curl_easy_cleanup(eh);
-    htmlp_init_with_file("www.baidu.com", "UTF-8");
   }
   curl_global_cleanup();
 }
