@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
   spider_t *sp;
   if (argc < 2) {
-    printf("[USAGE]: %s http://www.baidu.com/", argv[0]);
+    printf("[USAGE]: %s http://www.baidu.com/\n", argv[0]);
     return 1;
   }
   sp = spider_init(argv[1]);
