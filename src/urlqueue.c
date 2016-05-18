@@ -1,6 +1,6 @@
 #include "urlqueue.h"
 
-url_queue_t *url_queue_init()
+url_queue_t* url_queue_init()
 {
   url_queue_t *q = (url_queue_t*)calloc(1, sizeof(url_queue_t));
   q->ll = blist_init(10);
@@ -24,9 +24,14 @@ void url_queue_clean(url_queue_t *q)
   if (q) {
     if (q->ll) {
       blist_clean(q->ll);
-      q->ll = NULL
+      q->ll = NULL;
     }
     free(q);
     q = NULL;
   }
+}
+
+size_t url_queue_elenum(url_queue_t *q)
+{
+  return blist_elenum(q->ll);
 }

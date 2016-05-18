@@ -25,7 +25,7 @@ void blist_append_data(blist_t *l, size_t len, char *data)
     l->num += l->step;
     l->nodes = (blist_node_t*)n_mem;
   }
-  cur = (l->nodes) + index;
+  cur = l->nodes + l->index;
   (l->index)++;
   cur->data = data;
   cur->len = len;
@@ -45,9 +45,14 @@ void blist_clean(blist_t *l)
 	}
       }
       free(l->nodes);
-      l->nodes = NULL
+      l->nodes = NULL;
     }
     free(l);
     l = NULL;
   }
+}
+
+size_t blist_elenum(blist_t *l)
+{
+  return l->index + 1;
 }

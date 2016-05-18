@@ -20,6 +20,7 @@ spider_t* spider_init(char *url)
   }
   spider_t *sp = (spider_t *)calloc(1, sizeof(spider_t));
   strncpy(sp->root_url, url, strlen(url));
+  sp->urlq = url_queue_init();
   return sp;
 }
 

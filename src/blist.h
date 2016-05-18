@@ -1,6 +1,11 @@
 #ifndef _B_LIST_H_
 #define _B_LIST_H_
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+
 typedef struct _blist_node_s
 {
   char *data;
@@ -19,5 +24,6 @@ typedef struct _blist_s
 blist_t *blist_init(uint8_t step);
 void blist_append_data(blist_t *l, size_t len, char *data);
 void blist_clean(blist_t *l);
+size_t blist_elenum(blist_t *l);
 
 #endif

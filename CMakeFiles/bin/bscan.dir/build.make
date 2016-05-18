@@ -52,9 +52,55 @@ include CMakeFiles/./bin/bscan.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/./bin/bscan.dir/flags.make
 
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o: CMakeFiles/./bin/bscan.dir/flags.make
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o: src/urlqueue.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o   -c /home/xud/bscan/src/urlqueue.c
+
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/./bin/bscan.dir/src/urlqueue.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/xud/bscan/src/urlqueue.c > CMakeFiles/./bin/bscan.dir/src/urlqueue.c.i
+
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/./bin/bscan.dir/src/urlqueue.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/xud/bscan/src/urlqueue.c -o CMakeFiles/./bin/bscan.dir/src/urlqueue.c.s
+
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.requires:
+.PHONY : CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.requires
+
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.provides: CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.requires
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.provides.build
+.PHONY : CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.provides
+
+CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.provides.build: CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.o: CMakeFiles/./bin/bscan.dir/flags.make
+CMakeFiles/./bin/bscan.dir/src/blist.c.o: src/blist.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/blist.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/blist.c.o   -c /home/xud/bscan/src/blist.c
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/./bin/bscan.dir/src/blist.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/xud/bscan/src/blist.c > CMakeFiles/./bin/bscan.dir/src/blist.c.i
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/./bin/bscan.dir/src/blist.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/xud/bscan/src/blist.c -o CMakeFiles/./bin/bscan.dir/src/blist.c.s
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.o.requires:
+.PHONY : CMakeFiles/./bin/bscan.dir/src/blist.c.o.requires
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.o.provides: CMakeFiles/./bin/bscan.dir/src/blist.c.o.requires
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/blist.c.o.provides.build
+.PHONY : CMakeFiles/./bin/bscan.dir/src/blist.c.o.provides
+
+CMakeFiles/./bin/bscan.dir/src/blist.c.o.provides.build: CMakeFiles/./bin/bscan.dir/src/blist.c.o
+
 CMakeFiles/./bin/bscan.dir/src/bscan.c.o: CMakeFiles/./bin/bscan.dir/flags.make
 CMakeFiles/./bin/bscan.dir/src/bscan.c.o: src/bscan.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/bscan.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/bscan.c.o   -c /home/xud/bscan/src/bscan.c
 
@@ -77,7 +123,7 @@ CMakeFiles/./bin/bscan.dir/src/bscan.c.o.provides.build: CMakeFiles/./bin/bscan.
 
 CMakeFiles/./bin/bscan.dir/src/htmlp.c.o: CMakeFiles/./bin/bscan.dir/flags.make
 CMakeFiles/./bin/bscan.dir/src/htmlp.c.o: src/htmlp.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/htmlp.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/htmlp.c.o   -c /home/xud/bscan/src/htmlp.c
 
@@ -100,7 +146,7 @@ CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.provides.build: CMakeFiles/./bin/bscan.
 
 CMakeFiles/./bin/bscan.dir/src/spider.c.o: CMakeFiles/./bin/bscan.dir/flags.make
 CMakeFiles/./bin/bscan.dir/src/spider.c.o: src/spider.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/xud/bscan/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/./bin/bscan.dir/src/spider.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/./bin/bscan.dir/src/spider.c.o   -c /home/xud/bscan/src/spider.c
 
@@ -123,6 +169,8 @@ CMakeFiles/./bin/bscan.dir/src/spider.c.o.provides.build: CMakeFiles/./bin/bscan
 
 # Object files for target ./bin/bscan
 _/bin/bscan_OBJECTS = \
+"CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o" \
+"CMakeFiles/./bin/bscan.dir/src/blist.c.o" \
 "CMakeFiles/./bin/bscan.dir/src/bscan.c.o" \
 "CMakeFiles/./bin/bscan.dir/src/htmlp.c.o" \
 "CMakeFiles/./bin/bscan.dir/src/spider.c.o"
@@ -130,6 +178,8 @@ _/bin/bscan_OBJECTS = \
 # External object files for target ./bin/bscan
 _/bin/bscan_EXTERNAL_OBJECTS =
 
+./bin/bscan: CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o
+./bin/bscan: CMakeFiles/./bin/bscan.dir/src/blist.c.o
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/src/bscan.c.o
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o
 ./bin/bscan: CMakeFiles/./bin/bscan.dir/src/spider.c.o
@@ -142,6 +192,8 @@ _/bin/bscan_EXTERNAL_OBJECTS =
 CMakeFiles/./bin/bscan.dir/build: ./bin/bscan
 .PHONY : CMakeFiles/./bin/bscan.dir/build
 
+CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o.requires
+CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/blist.c.o.requires
 CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/bscan.c.o.requires
 CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/htmlp.c.o.requires
 CMakeFiles/./bin/bscan.dir/requires: CMakeFiles/./bin/bscan.dir/src/spider.c.o.requires

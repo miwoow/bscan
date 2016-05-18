@@ -6,21 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/xud/bscan/src/bscan.c
+/home/xud/bscan/src/blist.c
+blist.h
+/home/xud/bscan/src/blist.h
+string.h
+-
+
+/home/xud/bscan/src/blist.h
+stdint.h
+-
 stdio.h
 -
 stdlib.h
 -
-pthread.h
--
-spider.h
-/home/xud/bscan/src/spider.h
-
-/home/xud/bscan/src/spider.h
-stdlib.h
--
-string.h
--
-curl/curl.h
+sys/types.h
 -
 

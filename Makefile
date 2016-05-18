@@ -114,6 +114,30 @@ depend:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/build
 .PHONY : ./bin/bscan/fast
 
+src/blist.o: src/blist.c.o
+.PHONY : src/blist.o
+
+# target to build an object file
+src/blist.c.o:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/blist.c.o
+.PHONY : src/blist.c.o
+
+src/blist.i: src/blist.c.i
+.PHONY : src/blist.i
+
+# target to preprocess a source file
+src/blist.c.i:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/blist.c.i
+.PHONY : src/blist.c.i
+
+src/blist.s: src/blist.c.s
+.PHONY : src/blist.s
+
+# target to generate assembly for a file
+src/blist.c.s:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/blist.c.s
+.PHONY : src/blist.c.s
+
 src/bscan.o: src/bscan.c.o
 .PHONY : src/bscan.o
 
@@ -186,6 +210,30 @@ src/spider.c.s:
 	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/spider.c.s
 .PHONY : src/spider.c.s
 
+src/urlqueue.o: src/urlqueue.c.o
+.PHONY : src/urlqueue.o
+
+# target to build an object file
+src/urlqueue.c.o:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlqueue.c.o
+.PHONY : src/urlqueue.c.o
+
+src/urlqueue.i: src/urlqueue.c.i
+.PHONY : src/urlqueue.i
+
+# target to preprocess a source file
+src/urlqueue.c.i:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlqueue.c.i
+.PHONY : src/urlqueue.c.i
+
+src/urlqueue.s: src/urlqueue.c.s
+.PHONY : src/urlqueue.s
+
+# target to generate assembly for a file
+src/urlqueue.c.s:
+	$(MAKE) -f CMakeFiles/./bin/bscan.dir/build.make CMakeFiles/./bin/bscan.dir/src/urlqueue.c.s
+.PHONY : src/urlqueue.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -195,6 +243,9 @@ help:
 	@echo "... ./bin/bscan"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... src/blist.o"
+	@echo "... src/blist.i"
+	@echo "... src/blist.s"
 	@echo "... src/bscan.o"
 	@echo "... src/bscan.i"
 	@echo "... src/bscan.s"
@@ -204,6 +255,9 @@ help:
 	@echo "... src/spider.o"
 	@echo "... src/spider.i"
 	@echo "... src/spider.s"
+	@echo "... src/urlqueue.o"
+	@echo "... src/urlqueue.i"
+	@echo "... src/urlqueue.s"
 .PHONY : help
 
 

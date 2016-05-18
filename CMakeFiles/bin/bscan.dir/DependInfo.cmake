@@ -4,9 +4,11 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
+  "/home/xud/bscan/src/blist.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/blist.c.o"
   "/home/xud/bscan/src/bscan.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/bscan.c.o"
   "/home/xud/bscan/src/htmlp.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/htmlp.c.o"
   "/home/xud/bscan/src/spider.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/spider.c.o"
+  "/home/xud/bscan/src/urlqueue.c" "/home/xud/bscan/CMakeFiles/bin/bscan.dir/src/urlqueue.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
