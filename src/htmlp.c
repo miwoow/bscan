@@ -1,7 +1,7 @@
 #include "htmlp.h"
 #include "urlp.h"
 
-void htmlp_get_link(url_queue_t *uqueue, const char *fname, const char *encoding)
+void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding)
 {
   htmlDocPtr docp;
   xmlXPathContextPtr context;
@@ -9,11 +9,11 @@ void htmlp_get_link(url_queue_t *uqueue, const char *fname, const char *encoding
   xmlXPathObjectPtr result;
   xmlNodeSetPtr nodeset;
   struct _xmlAttr *attrs;
-  char pre_host[256] = {0};
   char *url;
   char complete_url[1024] = {0};
+  url_queue_t *uqueue = sp->urlq;
 
-  urlp_get_pre_path(url_queue_get(uqueue, 0), pre_host);
+  char *url_tmp_buf = NULL;
 
   docp = htmlParseFile(fname, encoding);
   context = xmlXPathNewContext(docp);
@@ -26,19 +26,56 @@ void htmlp_get_link(url_queue_t *uqueue, const char *fname, const char *encoding
       while(attrs) {
 	if (strncasecmp(attrs->name, "href", 4) == 0) {
 	  url = attrs->children->content;
-	  if (strstr(url, "http") != url) {
-	    memset(complete_url, 0, 1024);
-	    strncat(complete_url, pre_host, 1023);
-	    strncat(complete_url, url, 1023);
-	    if (strstr(complete_url, pre_host) == complete_url) {
-	      url_queue_uniq_add(uqueue, complete_url);
+	  url_tmp_buf = calloc(1, strlen(url) + 1);
+	  struct struct_parts uobj;
+	  memcpy(url_tmp_buf, url, strlen(url));
+	  printf("===================\n");
+	  printf("url:%s\n", url);
+	  urlp_parse(url_tmp_buf, &uobj);
+	  printf("access: %s\n", uobj.access);
+	  printf("host:%s\n", uobj.host);
+	  printf("absolute:%s\n", uobj.absolute);
+	  printf("relative:%s\n", uobj.relative);
+	  printf("search:%s\n", uobj.search);
+	  printf("anchor:%s\n", uobj.anchor);
+	  printf("===================\n");
+	  if (uobj.access != NULL) {
+	    if (strcasecmp(uobj.access, "javascript") != 0) {
+	      if (uobj.host != NULL) {
+		if (memcmp(uobj.host, (sp->root_url_obj).host, strlen(uobj.host)) == 0) {
+		  url_queue_uniq_add(uqueue, url);
+		}
+	      } else {
+		url_queue_uniq_add(uqueue, url);
+	      }
 	    }
 	  } else {
-	    if (strstr(complete_url, pre_host) == complete_url) {
-	      url_queue_uniq_add(uqueue, url);
+	    if (uobj.access == NULL)
+	      uobj.access = (sp->root_url_obj).access;
+	    if (uobj.host == NULL)
+	      uobj.host = (sp->root_url_obj).host;
+	    
+	    memset(complete_url, 0, 1024);
+	    snprintf(complete_url, 1023, "%s://%s",
+		     uobj.access,
+		     uobj.host);
+	    if (uobj.relative || uobj.absolute) {
+	      complete_url[strlen(complete_url)] = '/';
+	      strncat(complete_url, uobj.absolute ? uobj.absolute : uobj.relative, 1023);
 	    }
+	    if (uobj.search) {
+	      complete_url[strlen(complete_url)] = '?';
+	      strncat(complete_url, uobj.search, 1023);
+	    }
+	    if (uobj.anchor) {
+	      complete_url[strlen(complete_url)] = '#';
+	      strncat(complete_url, uobj.anchor, 1023);
+	    }
+	    url_queue_uniq_add(uqueue, complete_url);
 	  }
-	  //printf("%s\n", attrs->children->content);
+	  
+	  free(url_tmp_buf);
+	  break;
 	}
 	attrs = attrs->next;
       }

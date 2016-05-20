@@ -1,6 +1,7 @@
 #include "spider.h"
 #include "htmlp.h"
 #include <curl/curl.h>
+#include "urlp.h"
 
 size_t resp_write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
 {
@@ -20,6 +21,9 @@ spider_t* spider_init(char *url)
   }
   spider_t *sp = (spider_t *)calloc(1, sizeof(spider_t));
   strncpy(sp->root_url, url, strlen(url));
+  sp->root_url_buf = calloc(1, strlen(url) + 1);
+  memcpy(sp->root_url_buf, url, strlen(url));
+  urlp_parse(sp->root_url_buf, &(sp->root_url_obj));
   sp->urlq = url_queue_init();
   url_queue_add(sp->urlq, url);
   return sp;
@@ -51,7 +55,7 @@ void spider_start(spider_t *sp)
 		curl_easy_strerror(res));
       }
       fclose(fh);
-      htmlp_get_link(sp->urlq, "/tmp/bscan.spider.page", "UTF-8");
+      htmlp_get_link(sp, "/tmp/bscan.spider.page", "UTF-8");
       printf("queu num: %ld\n", url_queue_elenum(sp->urlq));
       sp->urlq->spider_index++;
     }

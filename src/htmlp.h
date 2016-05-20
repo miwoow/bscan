@@ -3,9 +3,10 @@
 
 #include <libxml/HTMLparser.h>
 #include <libxml/xpath.h>
+#include "bscan.h"
 #include "urlqueue.h"
 
-void htmlp_get_link(url_queue_t *uqueue, const char *fname, const char *encoding);
+void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding);
 
 
 

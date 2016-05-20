@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include "spider.h"
+#include "bscan.h"
 
 int main(int argc, char *argv[]) 
 {

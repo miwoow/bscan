@@ -40,7 +40,99 @@ int urlp_is_similar(char *url1, char *url2)
   return 0;
 }
 
-int urlp_parse(char *url, url_t *uobj)
+static void scan(char *name,
+                 struct struct_parts *parts)
 {
+  char *after_access;
+  char *p;
 
+  parts->access = NULL;
+  parts->host = NULL;
+  parts->absolute = NULL;
+  parts->relative = NULL;
+  parts->search = NULL;       /* normally not used - kw */
+  parts->anchor = NULL;
+
+  /*
+   * Scan left-to-right for a scheme (access).
+   */
+  after_access = name;
+  for (p = name; *p; p++) {
+    if (*p == ':') {
+      *p = '\0';
+      parts->access = name;       /* Access name has been specified */
+      after_access = (p + 1);
+      break;
+    }
+    if (*p == '/' || *p == '#' || *p == ';' || *p == '?')
+      break;
+  }
+
+  /*
+   * Scan left-to-right for a fragment (anchor).
+   */
+  for (p = after_access; *p; p++) {
+    if (*p == '#') {
+      parts->anchor = (p + 1);
+      *p = '\0';          /* terminate the rest */
+      break;              /* leave things after first # alone - kw */
+    }
+  }
+  /*
+   * Scan left-to-right for a host or absolute path.
+   */
+  p = after_access;
+  if (*p == '/') {
+    if (p[1] == '/') {
+      parts->host = (p + 2);      /* host has been specified    */
+      *p = '\0';          /* Terminate access           */
+      p = strchr(parts->host, '/');       /* look for end of host name if any */
+      if (p != NULL) {
+	*p = '\0';      /* Terminate host */
+	parts->absolute = (p + 1);      /* Root has been found */
+      } else {
+	p = strchr(parts->host, '?');
+	if (p != NULL) {
+	  *p = '\0';  /* Terminate host */
+	  parts->search = (p + 1);
+	}
+      }
+    } else {
+      parts->absolute = (p + 1);  /* Root found but no host */
+    }
+  } else {
+    parts->relative = (*after_access) ?
+      after_access : NULL;        /* NULL for "" */
+  }
+
+  /*
+   * Check schemes that commonly have unescaped hashes.
+   */
+  if (parts->access && parts->anchor &&
+      /* optimize */ strchr("lnsdLNSD", *parts->access) != NULL) {
+    if ((!parts->host && strcasecmp(parts->access, "lynxcgi")) ||
+	!strcasecmp(parts->access, "nntp") ||
+	!strcasecmp(parts->access, "snews") ||
+	!strcasecmp(parts->access, "news") ||
+	!strcasecmp(parts->access, "data")) {
+      /*
+       * Access specified but no host and not a lynxcgi URL, so the
+       * anchor may not really be one, e.g., news:j462#36487@foo.bar, or
+       * it's an nntp or snews URL, or news URL with a host.  Restore the
+       * '#' in the address.
+       */
+      /* but only if we have found a path component of which this will
+       * become part. - kw  */
+      if (parts->relative || parts->absolute) {
+	*(parts->anchor - 1) = '#';
+	parts->anchor = NULL;
+      }
+    }
+  }
+}
+
+int urlp_parse(char *url, struct struct_parts *uobj)
+{
+  scan(url, uobj);
+  return 0;
 }
