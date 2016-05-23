@@ -5,13 +5,15 @@ void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding)
 {
   htmlDocPtr docp;
   xmlXPathContextPtr context;
-  int i=0;
+  int i=0, j=0;
   xmlXPathObjectPtr result;
   xmlNodeSetPtr nodeset;
   struct _xmlAttr *attrs;
   char *url;
   char complete_url[1024] = {0};
   url_queue_t *uqueue = sp->urlq;
+  char *pos = NULL;
+  char *cur_chr = NULL;
 
   char *url_tmp_buf = NULL;
 
@@ -54,14 +56,37 @@ void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding)
 	      uobj.access = (sp->root_url_obj).access;
 	    if (uobj.host == NULL)
 	      uobj.host = (sp->root_url_obj).host;
-	    
-	    memset(complete_url, 0, 1024);
-	    snprintf(complete_url, 1023, "%s://%s",
-		     uobj.access,
-		     uobj.host);
 	    if (uobj.relative || uobj.absolute) {
-	      complete_url[strlen(complete_url)] = '/';
-	      strncat(complete_url, uobj.absolute ? uobj.absolute : uobj.relative, 1023);
+	      memset(complete_url, 0, 1024);
+	      if (uobj.relative) {
+		pos = strrchr(sp->cur_url, '/');
+		if (*(pos-1) == '/' && *(pos-2) == ':') {
+		  snprintf(complete_url, 1023, "%s://%s",
+			   uobj.access,
+			   uobj.host);
+		  complete_url[strlen(complete_url)] = '/';
+		  strncat(complete_url, uobj.relative, 1023);
+		} else {
+		  for (j=0, cur_chr = sp->cur_url; cur_chr < pos + 1; cur_chr++, j++) {
+		    complete_url[j] = *cur_chr;
+		  }
+		  strncat(complete_url, uobj.relative, 1023);
+		}
+	      }
+	      
+	      if (uobj.absolute) {
+		snprintf(complete_url, 1023, "%s://%s",
+			 uobj.access,
+			 uobj.host);
+		complete_url[strlen(complete_url)] = '/';
+		strncat(complete_url, uobj.absolute, 1023);
+	      }
+	    } else {
+	      memset(complete_url, 0, 1024);
+	      snprintf(complete_url, 1023, "%s://%s",
+		       uobj.access,
+		       uobj.host);
+	      complete_url[strlen(complete_url)] = '/'; 
 	    }
 	    if (uobj.search) {
 	      complete_url[strlen(complete_url)] = '?';

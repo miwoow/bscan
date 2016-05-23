@@ -45,17 +45,23 @@ void spider_start(spider_t *sp)
     curl_easy_setopt(eh, CURLOPT_HTTPHEADER, header_list);
     
     while(sp->urlq->spider_index < url_queue_elenum(sp->urlq) - 1) {
-      curl_easy_setopt(eh, CURLOPT_URL, url_queue_get(sp->urlq, sp->urlq->spider_index));
+      sp->cur_url = url_queue_get(sp->urlq, sp->urlq->spider_index);
+      curl_easy_setopt(eh, CURLOPT_URL,  sp->cur_url);
       fh = fopen("/tmp/bscan.spider.page", "w+");
       curl_easy_setopt(eh, CURLOPT_WRITEDATA, fh);
       
       res = curl_easy_perform(eh);
       if (res != CURLE_OK) {
-	fprintf(stderr, "curl_easy_perform() failed: %s\n",
+	fprintf(stderr, "curl_easy_perform(%s) failed: %s\n",
+		sp->cur_url,
 		curl_easy_strerror(res));
+	fclose(fh);
+	sp->urlq->spider_index++;
+	continue;
       }
       fclose(fh);
       htmlp_get_link(sp, "/tmp/bscan.spider.page", "UTF-8");
+
       printf("queu num: %ld\n", url_queue_elenum(sp->urlq));
       sp->urlq->spider_index++;
     }

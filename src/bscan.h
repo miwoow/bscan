@@ -20,6 +20,7 @@ typedef struct _spider_s
   char *root_url_buf;
   struct struct_parts root_url_obj;
   url_queue_t *urlq;
+  char *cur_url;
 }spider_t;
 
 #endif
