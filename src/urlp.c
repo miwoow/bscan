@@ -136,3 +136,50 @@ int urlp_parse(char *url, struct struct_parts *uobj)
   scan(url, uobj);
   return 0;
 }
+
+/*
+ * @inout abs_url string. A url starts with httpx://...
+ *                        Out with no dot in url.
+ *
+ */
+int urlp_strip_dot(char *abs_url)
+{
+  char *pos, *prepos = NULL;
+START:
+  pos = abs_url;
+  for (pos; *pos != '\0'; pos++) {
+    if (*pos == '/' && *(pos + 1) == '/' && *(pos - 1) == ':') {
+      break;
+    }
+  }
+  pos+=2;
+  for(; *pos != '\0'; pos++) {
+    if (*pos == '/') {
+      if (*(pos + 1) == '.') {
+	switch(*(pos + 2)) {
+	case '/':
+	  while(*(pos+3) != '\0') {
+	    *(pos + 1) == *(pos + 3);
+	    pos++;
+	  }
+	  *(pos + 2) = *(pos + 3) = '\0';
+	  goto START;
+	case '.':
+	  if (*(pos + 3) == '/') {
+	    while(*(pos + 4) != '\0') {
+	      *(pos + 1) = *(pos + 4);
+	      pos++;
+	    }
+	    *(pos + 2) = *(pos + 3) = *(pos + 4) = '\0';
+	  } else {
+	    continue;
+	  }
+	  goto START;
+	default:
+	  continue;
+	}
+      }
+    }
+  }
+  return 0;
+}

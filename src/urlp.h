@@ -10,5 +10,6 @@
 int urlp_parse(char *url, struct struct_parts *uobj);
 int urlp_get_pre_path(char *url, char *host);
 int urlp_is_similar(char *url1, char *url2);
+int urlp_strip_dot(char *url);
 
 #endif

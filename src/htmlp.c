@@ -16,6 +16,11 @@ void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding)
   char *cur_chr = NULL;
 
   char *url_tmp_buf = NULL;
+  /*
+  printf("*******************************\n");
+  printf("%s\n", sp->cur_url);
+  printf("*******************************\n");
+  */
 
   docp = htmlParseFile(fname, encoding);
   context = xmlXPathNewContext(docp);
@@ -96,6 +101,9 @@ void htmlp_get_link(spider_t *sp, const char *fname, const char *encoding)
 	      complete_url[strlen(complete_url)] = '#';
 	      strncat(complete_url, uobj.anchor, 1023);
 	    }
+	    printf("******preurl: %s\n", complete_url);
+	    urlp_strip_dot(complete_url);
+	    printf("******passurl: %s\n", complete_url);
 	    url_queue_uniq_add(uqueue, complete_url);
 	  }
 	  
