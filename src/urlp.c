@@ -162,7 +162,7 @@ START:
 	    *(pos + 1) == *(pos + 3);
 	    pos++;
 	  }
-	  *(pos + 2) = *(pos + 3) = '\0';
+	  *(pos + 1) = *(pos + 2) = '\0';
 	  goto START;
 	case '.':
 	  if (*(pos + 3) == '/') {
@@ -170,7 +170,7 @@ START:
 	      *(pos + 1) = *(pos + 4);
 	      pos++;
 	    }
-	    *(pos + 2) = *(pos + 3) = *(pos + 4) = '\0';
+	    *(pos + 1) = *(pos + 2) = *(pos + 3) = '\0';
 	  } else {
 	    continue;
 	  }
